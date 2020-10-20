@@ -1,5 +1,25 @@
 import java.util.Scanner;
 
+enum GearStatus {
+    GearOne,
+    GearTwo,
+    GearThree,
+    GearFour,
+    GearFive,
+    GearSix
+};
+
+enum Lights {
+    TopLeftLight,
+    TopRightLight,
+    BotLeftLight,
+    BotRightLight
+}
+enum WeatherStatus {
+    Off,
+    Slow,
+    Fast
+}
 public class Car {
 
     private String password;
@@ -10,6 +30,9 @@ public class Car {
     private String beltepass;
     private int LightsOn;
     public String currentlight;
+    private String stoptires;
+    public String currentgear;
+    public String washerStatus;
 
 
     public int degrees = 20;
@@ -27,6 +50,9 @@ public class Car {
         this.beltepass = "Belton";
         this.LightsOn = 0;
         this.currentlight = null;
+        this.stoptires = "Stop!";
+        this.currentgear = null;
+        this.washerStatus = null;
     }
 
     public void turnEngineOn(CarKey key) {
@@ -81,6 +107,7 @@ public class Car {
             System.out.println("All lights are operating and the lights active are now: " + this.LightsOn);
         }
     }
+
     public void backlightsAndFrontLightsOff() {
         if (this.engineOn) {
             this.LightsOn = 0;
@@ -106,5 +133,109 @@ public class Car {
         }
     }
 
+    public void breaktires(String tires) {
+        if (!this.engineOn) {
+            if (tires.equals(this.stoptires)) {
+                System.out.println("Breaking the tires, commence impact");
+            }
+        }
+    }
 
+    public void changeGear(int Gear) {
+        switch (Gear) {
+            case 1:
+                currentgear = "Gear 1";
+                break;
+            case 2:
+                currentgear = "Gear 2";
+                break;
+            case 3:
+                currentgear = "Gear 3";
+                break;
+            case 4:
+                currentgear = "Gear 4";
+                break;
+            case 5:
+                currentgear = "Gear 5";
+                break;
+            case 6:
+                currentgear = "Gear 6";
+                break;
+
+        }
+    }
+
+    public void windowWasher(int washer) {
+        switch (washer) {
+            case 1:
+                washerStatus = "Off";
+                break;
+            case 2:
+                washerStatus = "On: SLOW";
+                break;
+            case 3:
+                washerStatus = "On: FAST";
+                break;
+        }
+
+    }
+    public void enumWindowWasher() {
+        WeatherStatus status = WeatherStatus.Fast;
+        switch (status) {
+            case Off:
+                washerStatus = "Off";
+                break;
+            case Slow:
+                washerStatus = "On: SLOW";
+                break;
+            case Fast:
+                washerStatus = "On: FAST";
+                break;
+        }
+        System.out.println(washerStatus);
+    }
+    public void enumchangeGear() {
+        GearStatus status = GearStatus.GearFour;
+        switch (status) {
+            case GearOne:
+                currentgear = "Gear 1";
+                break;
+            case GearTwo:
+                currentgear = "Gear 2";
+                break;
+            case GearThree:
+                currentgear = "Gear 3";
+                break;
+            case GearFour:
+                currentgear = "Gear 4";
+                break;
+            case GearFive:
+                currentgear = "Gear 5";
+                break;
+            case GearSix:
+                currentgear = "Gear 6";
+                break;
+        }
+        System.out.println(currentgear);
+    }
+    public void enumBlinkingLights() {
+        Lights enumlights = Lights.BotLeftLight;
+
+        switch (enumlights) {
+            case TopLeftLight:
+                currentlight = "Top left light";
+                break;
+            case TopRightLight:
+                currentlight = "Top right light";
+                break;
+            case BotLeftLight:
+                currentlight = "Bottom left light";
+                break;
+            case BotRightLight:
+                currentlight = "Bottom right light";
+                break;
+        }
+        System.out.println(currentlight);
+    }
 }
+

@@ -25,6 +25,18 @@ public class CarTest {
         belteTest();
         System.out.println("Test 8: Blinking a light");
         lightsTest();
+        System.out.println("Test 9: Test the brakes");
+        testBreaks();
+        System.out.println("Test 10: Test the gear");
+        testchangeGear();
+        System.out.println("Test 11: Test the washerstatus");
+        testWindowWasher();
+        System.out.println("Test 12: Test Enum-windowwasher");
+        testEnumWindowWasher();
+        System.out.println("Test 13: Test Enum-changegear");
+        testEnumChangeGear();
+        System.out.println("Test 14: Test Enum-Lights");
+        testEnumBlinkingLights();
 
     }
 
@@ -86,7 +98,43 @@ public class CarTest {
         denizCar.BlinkingLights(lights);
         System.out.println("Blinking: " + denizCar.currentlight);
     }
+    public static void testBreaks() {
+        Car denizCar = new Car();
+        Scanner input = new Scanner(System.in);
+
+        String tires = input.next();
+        denizCar.breaktires(tires);
+        //System.out.println("Tires are breaking immensenly");
+    }
+    public static void testchangeGear() {
+        Car denizCar = new Car();
+        Scanner input = new Scanner(System.in);
+
+        int Gear = input.nextInt();
+        denizCar.changeGear(Gear);
+        System.out.println("Changing gear to: " + denizCar.currentgear + " - Be aware that you will break your car, if you do not change gear with speed");
+    }
+    public static void testWindowWasher() {
+        Car denizCar = new Car();
+        Scanner input = new Scanner(System.in);
+
+        int washer = input.nextInt();
+        denizCar.windowWasher(washer);
+        System.out.println("WasherStatus is now: " + denizCar.washerStatus);
+
+    }
+    public static void testEnumWindowWasher() {
+        Car denizCar = new Car();
+        denizCar.enumWindowWasher();
+    }
+    public static void testEnumChangeGear() {
+        Car denizCar = new Car();
+        denizCar.enumchangeGear();
+    }
+    public static void testEnumBlinkingLights() {
+        Car denizCar = new Car();
+        denizCar.enumBlinkingLights();
 
 
-
+    }
 }
